@@ -1,0 +1,20 @@
+<div class="row">
+    <div class="offset-2 col-md-8">
+        <h1 style="font-size: 30px; margin-bottom: 50px;">ユーザー登録</h1>
+        <%= form_with(model: @user, local: true) do |f| %>
+            <div class="form-group">
+                <%= f.label :name, 'ニックネーム' %>
+                <%= f.text_field :name, class: 'form-control' %>
+            </div>
+            <div class="form-group">
+                <%= f.label :email, 'メールアドレス' %>
+                <%= f.text_field :email, class: 'form-control' %>
+            </div>
+            <div class="form-group">
+                <%= f.label :password, 'パスワード' %>
+                <%= f.password_field :password, class: 'form-control' %>
+            </div>
+            <%= f.submit 'ユーザー登録', class: 'btn btn-primary btn-block' %>
+        <% end %>
+    </div>
+</div>
