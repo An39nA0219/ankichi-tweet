@@ -2,12 +2,29 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-                User's Profile
+                現在ログインしているユーザー：
+                <%= current_user.name %>
             </div>
             <div class="col-md-8">
-                <div class="form-group">
-                    <textarea class="form-control" rows="3"></textarea>
-                    <button class="btn btn-primary btn-block" style="margin-top: 10px;">投稿</button>    
+                <div style="width: 100%;">
+                    <%= form_with(model: @tweet, local: true) do |f| %>
+                        <div class="form-group">
+                            <%= f.text_area :content, class: 'form-control', rows: 3 %>
+                            <%= f.submit '投稿', class: 'btn btn-primary btn-block', style: 'margin-top: 10px' %>                        
+                        </div>
+                    <% end %>
+                </div>
+                <div style="width: 100%;">
+                    <% @tweets.each do |tweet| %>
+                        <div class="card" style="margin-bottom: 20px;">
+                            <div class="card-header">
+                                <%= tweet.created_at %>
+                            </div>
+                            <div class="card-text" style="height: 50px; padding-left: 30px; padding-top: 10px;">
+                                <%= tweet.content %>
+                            </div>
+                        </div>
+                    <% end %>
                 </div>
             </div>
         </div>
