@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'tweets/create'
+  get 'tweets/destroy'
   root to: 'toppages#index'
   
   get 'login', to: 'sessions#new'
@@ -9,4 +11,7 @@ Rails.application.routes.draw do
   get 'signup', to: 'users#new'
   
   resources :users, only:[:new, :create]
+  
+  resources :tweets, only: [:create, :destroy]
+  
 end
