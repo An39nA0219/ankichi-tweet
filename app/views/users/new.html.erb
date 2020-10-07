@@ -8,7 +8,7 @@
             </div>
             <div class="form-group">
                 <%= f.label :email, 'メールアドレス' %>
-                <%= f.text_field :email, class: 'form-control' %>
+                <%= f.email_field :email, class: 'form-control' %>
             </div>
             <div class="form-group">
                 <%= f.label :password, 'パスワード' %>
@@ -16,5 +16,6 @@
             </div>
             <%= f.submit 'ユーザー登録', class: 'btn btn-primary btn-block' %>
         <% end %>
+        <p style="margin-top: 30px;">既にアカウントをお持ちの方は<%= link_to 'こちら', login_path %></p>
     </div>
 </div>
